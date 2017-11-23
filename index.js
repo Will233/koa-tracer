@@ -26,7 +26,8 @@ function tracer (options) {
   }
   return async function (ctx, next) {
     let startTime = Date.now();
-    next();
+    // 等待返回
+    await next();
     let endTime = Date.now();
     let ip = getRealIp(ctx.req);
     let trace = {
